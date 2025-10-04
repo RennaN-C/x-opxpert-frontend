@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #000000);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+  overflow: hidden; /* Remove scroll */
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cadastro-container {
+  display: flex;
+  width: 900px;
+  height: 600px; /* altura fixa para evitar scroll */
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cadastro-form {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  color: white;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto; /* caso o formulário passe da altura */
+}
+
+.cadastro-form::-webkit-scrollbar {
+  display: none; /* esconde a barra de rolagem interna */
+}
+
+.cadastro-form h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: default;
+  user-select: none;
+}
+
+label {
+  font-size: 14px;
+  color: white;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+input::placeholder {
+  color: white;
+}
+
+select option {
+  background: #000;
+  color: white;
+}
+
+.btn-cadastrar {
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
+  border: none;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: transform 0.2s ease;
+}
+
+.btn-cadastrar:hover {
+  transform: scale(1.02);
+}
+
+.cadastro-image {
+  flex: 1;
+  /* CAMINHO CORRIGIDO ABAIXO */
+  background: url("/logo.png") center no-repeat;
+  background-size: contain;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.extra-link {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+}
+
+.extra-link:hover {
+  text-decoration: underline;
+}

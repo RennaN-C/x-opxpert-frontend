@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>X OPXpert - Sistema Modular</title>
+
+    <link href="/css/funcoes.css" rel="stylesheet" />
+    <script defer="True" src="/js/funcoes.js"></script>
+  </head>
+
+  <body>
+    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
+    <nav aria-label="Menu lateral" class="sidebar" role="navigation">
+      <h2>X OPXpert</h2>
+      <div
+        class="menu-item active"
+        data-page="dashboard"
+        onclick="openPage('dashboard')"
+        tabindex="0"
+      >
+        📊 Dashboard
+      </div>
+      <div
+        class="menu-item"
+        data-page="producao"
+        onclick="openPage('producao')"
+        tabindex="0"
+      >
+        🏭 Produção
+      </div>
+      <div
+        class="menu-item"
+        data-page="estoque"
+        onclick="openPage('estoque')"
+        tabindex="0"
+      >
+        📦 Estoque
+      </div>
+      <div
+        class="menu-item"
+        data-page="relatorios"
+        onclick="openPage('relatorios')"
+        tabindex="0"
+      >
+        📑 Relatórios
+      </div>
+      <div
+        class="menu-item"
+        data-page="manutencao"
+        onclick="openPage('manutencao')"
+        tabindex="0"
+      >
+        🛠 Manutenção
+      </div>
+      <div
+        class="menu-item"
+        data-page="rh"
+        onclick="openPage('rh')"
+        tabindex="0"
+      >
+        👥 Recursos Humanos
+      </div>
+      <div
+        class="menu-item"
+        data-page="financeiro"
+        onclick="openPage('financeiro')"
+        tabindex="0"
+      >
+        💰 Financeiro
+      </div>
+      <div
+        class="menu-item"
+        data-page="agenda"
+        onclick="openPage('agenda')"
+        tabindex="0"
+      >
+        📅 Agenda
+      </div>
+      <div
+        class="menu-item"
+        data-page="configuracoes"
+        onclick="window.location.href='/configuracoes'"
+        tabindex="0"
+      >
+        ⚙ Configurações
+      </div>
+    </nav>
+    <main class="page-wrapper" id="page-wrapper" role="main" tabindex="-1">
+      <div class="content-container" id="content-container">
+        <!-- TODO conteúdo original das páginas será carregado aqui -->
+      </div>
+    </main>
+    <footer>© 2025 X OPXpert - Todos os direitos reservados</footer>
+  </body>
+</html>

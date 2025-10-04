@@ -1,0 +1,42 @@
+/* client/src/assets/agenda.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  color: #f55f29;
+}
+
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+th,
+td {
+  border: 1px solid #333;
+  padding: 12px;
+  text-align: left;
+}
+
+thead {
+  background-color: #0b0932;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+tbody tr:hover {
+  background-color: #3a3a3a;
+}

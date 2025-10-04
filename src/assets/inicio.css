@@ -1,0 +1,142 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000; /* Fundo preto puro */
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: rgba(0, 0, 0, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #7b2ff7, #f107a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logout-btn {
+  background: linear-gradient(90deg, #ff5f57, #d23838);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #a92a2a;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: calc(100vh - 60px);
+}
+
+/* Barra lateral */
+.sidebar {
+  background: #0d0d0d;
+  padding: 20px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  overflow-y: auto;
+}
+
+.sidebar h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  background: linear-gradient(90deg, #f55f29, #d2388e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.update {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.update:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Conteúdo principal */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  overflow-y: auto;
+}
+
+/* Cards de resumo */
+.top-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #111111;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gráfico centralizado */
+.chart-container {
+  background: #111111;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 700px;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn {
+  background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #7520a7;
+}
