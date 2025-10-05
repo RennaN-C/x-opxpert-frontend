@@ -18,22 +18,20 @@ function LoginPage() {
       return alert("Por favor, preencha usuário e senha.");
     }
     try {
-      // A chamada à API continua a mesma
+      
       const response = await api.post('/login', { usuario, senha });
       
-      // --- CORREÇÃO ESTÁ AQUI ---
-      // Verificamos se a API deu uma resposta de sucesso (status 200)
+     
       if (response.status === 200) {
-        // Em vez de procurar por 'response.data.usuario', nós simplesmente usamos
-        // o 'usuario' que já temos do formulário para guardar no nosso estado de login.
+        
         login({ usuario: usuario }); 
         
-        // E então, redirecionamos.
+       
         navigate('/dashboard');
       }
 
     } catch (error) {
-      // O erro da API (ex: "Senha incorreta") será mostrado aqui
+    
       alert(error.response?.data?.mensagem || 'Erro ao fazer login.');
     }
   };
