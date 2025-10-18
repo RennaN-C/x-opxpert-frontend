@@ -1,0 +1,102 @@
+/* src/assets/home.css - Versão com vídeo em ecrã completo garantido */
+
+.home-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* --- CORREÇÃO PRINCIPAL AQUI --- */
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  /* --- FIM DA CORREÇÃO --- */
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+  filter: brightness(0.6);
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.home-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-logo {
+  max-width: 280px;
+  margin-bottom: 20px;
+}
+
+.welcome-title {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: white;
+  margin: 0;
+  font-weight: 700;
+}
+
+.welcome-subtitle {
+  font-family: var(--font-main);
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.enter-button {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.enter-button:hover {
+  background-color: white;
+  color: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2.2rem;
+  }
+  .welcome-subtitle {
+    font-size: 1rem;
+  }
+  .home-logo {
+    max-width: 200px;
+  }
+}

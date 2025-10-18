@@ -1,0 +1,65 @@
+/* src/assets/funcoesPage.css */
+.funcoes-container {
+  background-color: #000;
+  color: white;
+  min-height: 100vh;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.funcoes-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.funcoes-logo {
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.funcoes-header h1 {
+  background: linear-gradient(90deg, #d2388e, #6f25d2, #f55f29);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  margin: 0;
+}
+
+.funcoes-header p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.funcoes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.funcao-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 25px;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.funcao-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.funcao-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.funcao-title {
+  font-size: 1rem;
+  font-weight: bold;
+}

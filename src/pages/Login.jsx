@@ -1,9 +1,8 @@
-// client/src/pages/Login.jsx - Versão Corrigida
-
+// src/pages/Login.jsx - Redirecionamento corrigido para /home
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext.jsx';
 import '../assets/login.css';
 
 function LoginPage() {
@@ -18,20 +17,16 @@ function LoginPage() {
       return alert("Por favor, preencha usuário e senha.");
     }
     try {
-      
       const response = await api.post('/login', { usuario, senha });
       
-     
       if (response.status === 200) {
-        
         login({ usuario: usuario }); 
         
-       
-        navigate('/dashboard');
+        // CORREÇÃO: Redireciona para a nova página /home
+        navigate('/home');
       }
 
     } catch (error) {
-    
       alert(error.response?.data?.mensagem || 'Erro ao fazer login.');
     }
   };

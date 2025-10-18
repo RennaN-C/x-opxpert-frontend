@@ -1,25 +1,36 @@
-// client/src/App.jsx - Versão Final e Completa do Roteador
-
+// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import { useAuth } from './context/AuthContext';
+import { useAuth } from './context/AuthContext.jsx';
 
-// --- Importação dos Componentes ---
-import ProtectedRoute from './components/ProtectedRoute';
-import MainLayout from './layouts/MainLayout';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
+import ContentLayout from './layouts/ContentLayout.jsx';
 
-// --- Importação de Todas as Páginas ---
-import LoginPage from './pages/Login';
-import CadastroPage from './pages/Cadastro';
-import DashboardPage from './pages/Dashboard';
-import ProducaoPage from './pages/Producao';
-import EstoquePage from './pages/Estoque';
-import RelatoriosPage from './pages/Relatorios';
-import ManutencaoPage from './pages/Manutencao';
-import FuncionariosPage from './pages/Funcionarios';
-import FinanceiroPage from './pages/Financeiro';
-import AgendaPage from './pages/Agenda';
-import ConfiguracoesPage from './pages/Configuracoes';
+// --- Importação das Páginas ---
+import LoginPage from './pages/Login.jsx';
+import CadastroPage from './pages/Cadastro.jsx';
+import HomePage from './pages/Home.jsx';
+import FuncoesPage from './pages/Funcoes/Funcoes.jsx';
+import DashboardPage from './pages/Dashboard.jsx';
+import ClientesPage from './pages/Clientes.jsx';
+import ProducaoPage from './pages/Producao.jsx';
+import OrdensProducaoPage from './pages/Producao/OrdensProducao.jsx';
+import NovaOrdemPage from './pages/Producao/NovaOrdem.jsx';
+import EstoquePage from './pages/Estoque.jsx';
+import ComprasPage from './pages/Compras.jsx';
+import FornecedoresPage from './pages/Compras/Fornecedores.jsx';
+import NovoFornecedorPage from './pages/Compras/NovoFornecedor.jsx';
+import PedidosCompraPage from './pages/Compras/PedidosCompra.jsx';
+import NovoPedidoCompraPage from './pages/Compras/NovoPedidoCompra.jsx';
+import QualidadePage from './pages/Qualidade.jsx';
+import RelatoriosPage from './pages/Relatorios.jsx';
+import NovoRelatorioPage from './pages/Relatorios/NovoRelatorio.jsx'; // NOVO
+import ManutencaoPage from './pages/Manutencao.jsx';
+import FuncionariosPage from './pages/Funcionarios.jsx';
+import FinanceiroPage from './pages/Financeiro.jsx';
+import AgendaPage from './pages/Agenda.jsx';
+import ConfiguracoesPage from './pages/Configuracoes.jsx';
+import AjudaPage from './pages/Ajuda.jsx';
 
 function App() {
   const { user } = useAuth();
@@ -27,44 +38,44 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* --- Rotas Públicas --- */}
-        {/* Estas rotas podem ser acessadas sem login */}
+        {/* Rotas Públicas */}
         <Route path="/login" element={<LoginPage />} />
         <Route path="/cadastro" element={<CadastroPage />} />
 
-        {/* --- Rotas Protegidas --- */}
-        {/* Tudo dentro desta rota-pai exigirá que o usuário esteja logado. */}
-        {/* O componente ProtectedRoute faz a verificação. */}
+        {/* Rotas Protegidas */}
         <Route element={<ProtectedRoute />}>
-          {/* O MainLayout aplica a sidebar e o footer a todas as páginas internas. */}
-          <Route element={<MainLayout />}>
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/funcoes" element={<FuncoesPage />} />
+
+          <Route element={<ContentLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/clientes" element={<ClientesPage />} />
             <Route path="/producao" element={<ProducaoPage />} />
+            <Route path="/producao/ordens" element={<OrdensProducaoPage />} />
+            <Route path="/producao/nova" element={<NovaOrdemPage />} />
             <Route path="/estoque" element={<EstoquePage />} />
-            <Route path="/relatorios" element={<RelatoriosPage />} />
+            <Route path="/compras" element={<ComprasPage />} />
+            <Route path="/compras/fornecedores" element={<FornecedoresPage />} />
+            <Route path="/compras/fornecedores/novo" element={<NovoFornecedorPage />} />
+            <Route path="/compras/pedidos" element={<PedidosCompraPage />} />
+            <Route path="/compras/pedidos/novo" element={<NovoPedidoCompraPage />} />
+            <Route path="/qualidade" element={<QualidadePage />} />
             <Route path="/manutencao" element={<ManutencaoPage />} />
-            <Route path="/funcionarios" element={<FuncionariosPage />} />
             <Route path="/financeiro" element={<FinanceiroPage />} />
+            <Route path="/relatorios" element={<RelatoriosPage />} />
+            <Route path="/relatorios/novo" element={<NovoRelatorioPage />} /> {/* NOVO */}
+            <Route path="/funcionarios" element={<FuncionariosPage />} />
             <Route path="/agenda" element={<AgendaPage />} />
             <Route path="/configuracoes" element={<ConfiguracoesPage />} />
+            <Route path="/ajuda" element={<AjudaPage />} />
           </Route>
         </Route>
 
-        {/* --- Redirecionamentos e Rotas Padrão --- */}
-
-        {/* A rota raiz "/" verifica se o usuário está logado. */}
-        {/* Se estiver, redireciona para o dashboard. Senão, para o login. */}
         <Route 
           path="/" 
-          element={user ? <Navigate to="/dashboard" /> : <Navigate to="/login" />} 
+          element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} 
         />
-
-        {/* Rota "catch-all" para qualquer URL não encontrada. */}
-        <Route path="*" element={
-          <div style={{ textAlign: 'center', marginTop: '50px' }}>
-            <h1>404 - Página Não Encontrada</h1>
-          </div>
-        } />
+        <Route path="*" element={<h1>404 - Página Não Encontrada</h1>} />
       </Routes>
     </Router>
   );

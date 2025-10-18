@@ -1,14 +1,32 @@
-// client/src/context/AuthContext.jsx
-import React, { createContext, useState, useContext } from 'react';
+// src/context/AuthContext.jsx - Versão Corrigida e Mais Robusta
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  // Vamos verificar se o usuário já está "logado" (simplesmente se há um item no localStorage)
-  const [user, setUser] = useState(localStorage.getItem('user'));
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true); // Adiciona um estado de carregamento
+
+  useEffect(() => {
+    // Tenta carregar o usuário do localStorage apenas uma vez, ao iniciar
+    try {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    } catch (error) {
+      console.error("Falha ao carregar dados do usuário:", error);
+      // Limpa o armazenamento se os dados estiverem corrompidos
+      localStorage.removeItem('user');
+    } finally {
+      setLoading(false); // Finaliza o carregamento
+    }
+  }, []);
 
   const login = (userData) => {
+    // Guarda o objeto do usuário no localStorage
     localStorage.setItem('user', JSON.stringify(userData));
+    // Atualiza o estado com o objeto do usuário
     setUser(userData);
   };
 
@@ -16,6 +34,11 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
     setUser(null);
   };
+
+  // Não renderiza nada até que a verificação inicial do usuário esteja completa
+  if (loading) {
+    return null; 
+  }
 
   return (
     <AuthContext.Provider value={{ user, login, logout }}>

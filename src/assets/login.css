@@ -1,26 +1,13 @@
+/* src/assets/login.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #000000);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
+  background: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   color: white;
-}
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
 }
 
 .login-container {
@@ -52,10 +39,6 @@ body {
   background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  cursor: default;
-  user-select: none;
 }
 
 label {
@@ -77,20 +60,6 @@ input {
   outline: none;
 }
 
-input::placeholder {
-  color: white;
-}
-
-a {
-  color: white;
-  font-size: 14px;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 .btn-login {
   background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
   border: none;
@@ -102,11 +71,6 @@ a:hover {
   cursor: pointer;
   width: 100%;
   margin-top: 10px;
-  transition: transform 0.2s ease;
-}
-
-.btn-login:hover {
-  transform: scale(1.02);
 }
 
 .btn-cadastro {
@@ -116,73 +80,12 @@ a:hover {
   font-size: 14px;
   text-align: center;
   color: white;
-  background: linear-gradient(90deg, #ff7e5f, #2575fc);
-  border-radius: 8px;
   text-decoration: none;
-  transition: transform 0.2s ease;
-}
-
-.btn-cadastro:hover {
-  transform: scale(1.02);
 }
 
 .login-image {
   flex: 1;
-  /* CAMINHO CORRIGIDO ABAIXO */
   background: url("/logo.png") center no-repeat;
   background-size: contain;
   background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  body {
-    height: auto;
-    padding: 20px 0;
-  }
-
-  .login-container {
-    flex-direction: column;
-    width: 90%;
-  }
-
-  .login-form {
-    padding: 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .login-image {
-    height: 200px;
-  }
-
-  .login-form h2 {
-    font-size: 22px;
-    text-align: center;
-  }
-
-  input,
-  .btn-login,
-  .btn-cadastro {
-    font-size: 14px;
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .login-form {
-    padding: 15px;
-  }
-
-  .login-form h2 {
-    font-size: 20px;
-  }
-
-  .login-image {
-    height: 150px;
-  }
 }
