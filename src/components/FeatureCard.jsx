@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/funcoes.css'; // Reutilizaremos este CSS
+import '../assets/funcoes.css'; 
 
 function FeatureCard({ title, description, icon, linkTo }) {
   return (

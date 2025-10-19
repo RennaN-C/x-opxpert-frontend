@@ -1,4 +1,3 @@
-// src/pages/Compras.jsx - Versão com Cards
 import React from 'react';
 import FeatureCard from '../components/FeatureCard.jsx';
 
