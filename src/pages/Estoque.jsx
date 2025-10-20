@@ -1,44 +1,32 @@
-// src/pages/Estoque.jsx
-import React, { useState, useEffect } from 'react';
-import api from '../services/api';
+// src/pages/Estoque.jsx - Versão com Cards
+import React from 'react';
+import FeatureCard from '../components/FeatureCard.jsx';
 
 function EstoquePage() {
-    const [produtos, setProdutos] = useState([]);
-
-    useEffect(() => {
-        api.get('/api/produtos') // Rota da API para listar produtos
-            .then(response => {
-                setProdutos(response.data);
-            })
-            .catch(error => console.error("Erro ao buscar produtos:", error));
-    }, []);
-
     return (
         <div>
             <h1>📦 Controle de Estoque</h1>
-            <p>Visualize os produtos e suas quantidades em estoque.</p>
-            <table>
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Nome</th>
-                  <th>Descrição</th>
-                  <th>Quantidade Atual</th>
-                  <th>Unidade</th>
-                </tr>
-              </thead>
-              <tbody>
-                {produtos.map(produto => (
-                  <tr key={produto.id_produto}>
-                    <td>{produto.id_produto}</td>
-                    <td>{produto.nome}</td>
-                    <td>{produto.descricao}</td>
-                    <td>{produto.quantidade_atual}</td>
-                    <td>{produto.unidade_medida}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <p>Gira os seus produtos, quantidades e movimentações.</p>
+            <div className="card-container">
+                <FeatureCard
+                    icon="🧊"
+                    title="Visualizar Produtos"
+                    description="Consulte todos os itens em estoque."
+                    linkTo="/estoque/produtos"
+                />
+                <FeatureCard
+                    icon="➕"
+                    title="Novo Produto"
+                    description="Adicione um novo item ao seu catálogo."
+                    linkTo="/estoque/novo"
+                />
+                 <FeatureCard
+                    icon="🔄"
+                    title="Movimentar Estoque"
+                    description="Registe entradas e saídas de materiais."
+                    linkTo="/estoque/movimentar"
+                />
+            </div>
         </div>
     );
 }

@@ -1,9 +1,11 @@
 // src/pages/Qualidade.jsx
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 function QualidadePage() {
   const [inspecoes, setInspecoes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get('/api/qualidade').then(res => setInspecoes(res.data));
@@ -11,9 +13,13 @@ function QualidadePage() {
 
   return (
     <div>
-      <h1>✅ Controle de Qualidade</h1>
-      <p>Registre e consulte as inspeções de qualidade das ordens de produção.</p>
-      {/* Adicionar um botão para nova inspeção aqui */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>✅ Controle de Qualidade</h1>
+        <button className="btn-submit" style={{ width: 'auto' }} onClick={() => navigate('/qualidade/novo')}>
+          + Nova Inspeção
+        </button>
+      </div>
+      <p>Registe e consulte as inspeções de qualidade das ordens de produção.</p>
       <table>
         <thead>
           <tr>

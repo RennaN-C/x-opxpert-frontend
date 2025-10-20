@@ -1,8 +1,11 @@
+// src/pages/Clientes.jsx
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 
 function ClientesPage() {
   const [clientes, setClientes] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     api.get('/api/clientes').then(res => setClientes(res.data));
@@ -10,9 +13,13 @@ function ClientesPage() {
 
   return (
     <div>
-      <h1>👥 Gestão de Clientes</h1>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>👥 Gestão de Clientes</h1>
+        <button className="btn-submit" style={{ width: 'auto' }} onClick={() => navigate('/clientes/novo')}>
+          + Novo Cliente
+        </button>
+      </div>
       <p>Centralize as informações dos seus parceiros de negócio.</p>
-      {/* Adicionar um botão para novo cliente aqui */}
       <table>
         <thead>
           <tr>

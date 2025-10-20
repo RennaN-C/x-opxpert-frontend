@@ -1,29 +1,26 @@
 // src/pages/Agenda.jsx
 import React, { useState, useEffect } from 'react';
-import api from '../services/api'; // Usando nosso serviço de API
-import '../assets/agenda.css'; // Crie e mova o CSS correspondente para esta pasta
+import { useNavigate } from 'react-router-dom';
+import api from '../services/api';
 
 function AgendaPage() {
   const [eventos, setEventos] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchEventos = async () => {
-      try {
-        const response = await api.get('/api/agenda'); // Rota da sua API
-        setEventos(response.data);
-      } catch (error) {
-        console.error("Erro ao buscar eventos:", error);
-        alert("Não foi possível carregar a agenda.");
-      }
-    };
-
-    fetchEventos();
-  }, []); // Executa apenas uma vez ao carregar o componente
+    api.get('/api/agenda').then(res => setEventos(res.data));
+  }, []);
 
   return (
     <div>
-      <h1>Agenda de Eventos</h1>
-      <table border="1">
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <h1>📅 Agenda</h1>
+        <button className="btn-submit" style={{ width: 'auto' }} onClick={() => navigate('/agenda/novo')}>
+          + Novo Evento
+        </button>
+      </div>
+      <p>Organize os seus compromissos, reuniões e prazos importantes.</p>
+      <table>
         <thead>
           <tr>
             <th>Título</th>
@@ -33,20 +30,14 @@ function AgendaPage() {
           </tr>
         </thead>
         <tbody>
-          {eventos.length > 0 ? (
-            eventos.map((evento) => (
-              <tr key={evento.id_evento}>
-                <td>{evento.titulo}</td>
-                <td>{evento.descricao}</td>
-                <td>{new Date(evento.data_evento).toLocaleDateString()}</td>
-                <td>{evento.hora_evento}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="4">Nenhum evento encontrado.</td>
+          {eventos.map((evento) => (
+            <tr key={evento.id_evento}>
+              <td>{evento.titulo}</td>
+              <td>{evento.descricao}</td>
+              <td>{new Date(evento.data_evento).toLocaleDateString()}</td>
+              <td>{evento.hora_evento}</td>
             </tr>
-          )}
+          ))}
         </tbody>
       </table>
     </div>
