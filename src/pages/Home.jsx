@@ -64,13 +64,15 @@ function HomePage() {
           Bem-vindo ao X-OPXpert.
         </motion.p>
         
-        <motion.button 
-          onClick={() => navigate('/funcoes')} 
-          className="enter-button"
-          variants={buttonVariants}
-        >
-          INICIAR
-        </motion.button>
+      <motion.button
+  onClick={() => navigate('/funcoes')}
+  className="enter-button"
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 2 }}
+>
+  INICIAR
+</motion.button>
       </motion.div>
     </div>
   );

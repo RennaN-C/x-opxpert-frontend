@@ -1,5 +1,6 @@
-/* src/assets/home.css - Versão com vídeo em ecrã completo garantido */
+/* src/assets/home.css - Versão Premium com vídeo fullscreen e tipografia moderna */
 
+/* --- Container principal --- */
 .home-container {
   position: relative;
   height: 100vh;
@@ -10,93 +11,129 @@
   text-align: center;
   overflow: hidden;
   background-color: #000;
+  font-family: 'Roboto', sans-serif; /* Fonte base para subtítulos e corpo */
 }
 
+/* --- Vídeo de fundo --- */
 .background-video {
   position: absolute;
   top: 50%;
   left: 50%;
-  /* --- CORREÇÃO PRINCIPAL AQUI --- */
   min-width: 100%;
   min-height: 100%;
   width: auto;
   height: auto;
-  /* --- FIM DA CORREÇÃO --- */
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
-  filter: brightness(0.6);
+  filter: brightness(0.55); /* Escurece um pouco para destacar texto */
+  pointer-events: none; /* Permite clicar nos elementos acima */
 }
 
+/* --- Overlay escuro sobre o vídeo --- */
 .video-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background: rgba(0,0,0,0.4);
   z-index: 2;
+  pointer-events: none; /* permite clicar nos elementos acima */
 }
 
+
+/* --- Conteúdo principal --- */
 .home-content {
   position: relative;
   z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px;
 }
 
+/* --- Logo --- */
 .home-logo {
   max-width: 280px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); /* sombra sutil */
 }
 
+/* --- Título principal --- */
 .welcome-title {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
+  font-family: 'Montserrat', sans-serif; /* Fonte elegante para títulos */
+  font-size: 3.8rem;
+  font-weight: 800;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: white;
+  color: #ffffff;
   margin: 0;
-  font-weight: 700;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 8px rgba(0,0,0,0.6); /* Destaca sobre o vídeo */
 }
 
+/* --- Subtítulo --- */
 .welcome-subtitle {
-  font-family: var(--font-main);
-  font-size: 1.2rem;
-  color: #e0e0e0;
-  margin-top: 10px;
-  margin-bottom: 50px;
-  letter-spacing: 1px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
   font-weight: 300;
+  color: #e0e0e0;
+  margin-top: 0;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
 .enter-button {
-  background: transparent;
-  color: white;
-  border: 2px solid white;
-  padding: 15px 40px;
-  font-size: 1rem;
+  position: relative; /* necessário para z-index funcionar */
+  z-index: 5;         /* acima de overlay (2) e vídeo (1) */
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   letter-spacing: 2px;
+  font-size: 1rem;
+  padding: 15px 40px;
+  border: 2px solid #ffffff;
+  background: transparent;
+  color: #ffffff;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  border-radius: 5px;
 }
 
 .enter-button:hover {
-  background-color: white;
-  color: #000;
+  background-color: #ffffff;
+  color: #000000;
+  transform: scale(1.05);
+}
+/* --- Responsividade --- */
+@media (max-width: 1024px) {
+  .welcome-title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+  .welcome-subtitle {
+    font-size: 1.15rem;
+  }
+  .home-logo {
+    max-width: 240px;
+  }
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
   .welcome-title {
     font-size: 2.2rem;
+    letter-spacing: 3px;
   }
   .welcome-subtitle {
     font-size: 1rem;
   }
   .home-logo {
-    max-width: 200px;
+    max-width: 180px;
+  }
+  .enter-button {
+    padding: 12px 30px;
+    font-size: 0.95rem;
   }
 }

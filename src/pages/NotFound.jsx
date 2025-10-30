@@ -75,10 +75,10 @@ function NotFoundPage() {
           Página Não Encontrada
         </motion.p>
         <motion.p className="notfound-description" variants={itemVariants}>
-          A rota que você tentou aceder não existe ou foi movida.
+          A rota que você tentou acessar não existe.
         </motion.p>
         <motion.div variants={itemVariants}>
-            <button onClick={() => navigate('/home')} className="notfound-button">
+            <button onClick={() => navigate('/Home')} className="notfound-button">
                 Voltar à Página Inicial
             </button>
         </motion.div>

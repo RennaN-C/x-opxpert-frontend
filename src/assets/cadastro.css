@@ -9,7 +9,7 @@ body {
   align-items: center;
   height: 100vh;
   color: white;
-  overflow: hidden; /* Remove scroll */
+  
 }
 
 @keyframes gradientBG {
