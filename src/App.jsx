@@ -21,6 +21,7 @@ import NovoClientePage from './pages/Clientes/NovoCliente.jsx';
 import ProducaoPage from './pages/Producao.jsx';
 import OrdensProducaoPage from './pages/Producao/OrdensProducao.jsx';
 import NovaOrdemPage from './pages/Producao/NovaOrdem.jsx';
+import SequenciamentoPage from './pages/Producao/SequenciamentoPage.jsx'; // <-- 1. IMPORTAR
 
 import EstoquePage from './pages/Estoque.jsx';
 import ProdutosPage from './pages/Estoque/Produtos.jsx';
@@ -61,7 +62,7 @@ function App() {
     <Router>
       <Routes>
         {/* Rotas Públicas */}
-        <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/dashboard" />} />
+        <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/home" />} />
         <Route path="/cadastro" element={<CadastroPage />} />
 
         {/* Rotas Protegidas */}
@@ -81,6 +82,7 @@ function App() {
             <Route path="/producao" element={<ProducaoPage />} />
             <Route path="/producao/ordens" element={<OrdensProducaoPage />} />
             <Route path="/producao/nova" element={<NovaOrdemPage />} />
+            <Route path="/producao/sequenciamento" element={<SequenciamentoPage />} /> {/* <-- 2. ADICIONAR ROTA */}
             
             <Route path="/estoque" element={<EstoquePage />} />
             <Route path="/estoque/produtos" element={<ProdutosPage />} />

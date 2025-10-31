@@ -23,7 +23,7 @@ function LoginPage() {
         login({ usuario: usuario }); 
         
         // CORREÇÃO: Redireciona para a nova página /home
-        navigate('/home');
+        navigate('/Home');
       }
 
     } catch (error) {

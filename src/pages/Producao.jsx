@@ -1,4 +1,4 @@
-// src/pages/Producao.jsx - Versão com Cards
+// src/pages/Producao.jsx - ATUALIZADO
 import React from 'react';
 import FeatureCard from '../components/FeatureCard.jsx';
 
@@ -19,6 +19,13 @@ function ProducaoPage() {
           title="Nova Ordem de Produção"
           description="Crie e inicie uma nova ordem no sistema."
           linkTo="/producao/nova"
+        />
+        {/* NOVO CARD ADICIONADO ABAIXO */}
+        <FeatureCard
+          icon="↔️"
+          title="Sequenciar Produção"
+          description="Defina a prioridade e a fila de execução das ordens."
+          linkTo="/producao/sequenciamento"
         />
       </div>
     </div>
