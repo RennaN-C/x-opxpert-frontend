@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext.jsx';
@@ -16,7 +15,7 @@ import NovoClientePage from './pages/Clientes/NovoCliente.jsx';
 import ProducaoPage from './pages/Producao.jsx';
 import OrdensProducaoPage from './pages/Producao/OrdensProducao.jsx';
 import NovaOrdemPage from './pages/Producao/NovaOrdem.jsx';
-import SequenciamentoPage from './pages/Producao/SequenciamentoPage.jsx'; // <-- 1. IMPORTAR
+import SequenciamentoPage from './pages/Producao/SequenciamentoPage.jsx';
 
 import EstoquePage from './pages/Estoque.jsx';
 import ProdutosPage from './pages/Estoque/Produtos.jsx';
@@ -34,6 +33,7 @@ import NovaInspecaoPage from './pages/Qualidade/NovaInspecao.jsx';
 
 import RelatoriosPage from './pages/Relatorios.jsx';
 import NovoRelatorioPage from './pages/Relatorios/NovoRelatorio.jsx';
+import VisualizarRelatorioProducao from './pages/Relatorios/VisualizarRelatorioProducao.jsx';
 
 import ManutencaoPage from './pages/Manutencao.jsx';
 import NovaManutencaoPage from './pages/Manutencao/NovaManutencao.jsx';
@@ -56,17 +56,17 @@ function App() {
   return (
     <Router>
       <Routes>
-        {}
+        
         <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/home" />} />
         <Route path="/cadastro" element={<CadastroPage />} />
 
-        {}
+        
         <Route element={<ProtectedRoute />}>
-          {}
+          
           <Route path="/home" element={<HomePage />} />
           <Route path="/funcoes" element={<FuncoesPage />} />
 
-          {}
+          
           <Route element={<ContentLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/perfil" element={<PerfilPage />} />
@@ -77,7 +77,7 @@ function App() {
             <Route path="/producao" element={<ProducaoPage />} />
             <Route path="/producao/ordens" element={<OrdensProducaoPage />} />
             <Route path="/producao/nova" element={<NovaOrdemPage />} />
-            <Route path="/producao/sequenciamento" element={<SequenciamentoPage />} /> {/* <-- 2. ADICIONAR ROTA */}
+            <Route path="/producao/sequenciamento" element={<SequenciamentoPage />} />
             
             <Route path="/estoque" element={<EstoquePage />} />
             <Route path="/estoque/produtos" element={<ProdutosPage />} />
@@ -101,6 +101,7 @@ function App() {
 
             <Route path="/relatorios" element={<RelatoriosPage />} />
             <Route path="/relatorios/novo" element={<NovoRelatorioPage />} />
+            <Route path="/relatorios/producao" element={<VisualizarRelatorioProducao />} />
 
             <Route path="/funcionarios" element={<FuncionariosPage />} />
             
@@ -112,7 +113,7 @@ function App() {
           </Route>
         </Route>
 
-        {}
+        
         <Route 
           path="/" 
           element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} 

@@ -6,6 +6,7 @@ const AuthContext = createContext(null);
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     
     const verifySession = async () => {
@@ -19,6 +20,7 @@ export const AuthProvider = ({ children }) => {
         console.log("Sessão não encontrada ou expirada.");
         setUser(null);
         localStorage.removeItem('user'); 
+      } finally {
         
         setLoading(false);
       }

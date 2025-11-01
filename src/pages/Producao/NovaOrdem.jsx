@@ -7,6 +7,7 @@ function NovaOrdemPage() {
   const navigate = useNavigate();
   const { showNotification } = useNotification(); 
   const [usuarios, setUsuarios] = useState([]);
+  const [clientes, setClientes] = useState([]);
   const [formData, setFormData] = useState({
     descricao: '',
     quantidade_planejada: '',
@@ -19,7 +20,7 @@ function NovaOrdemPage() {
 
   useEffect(() => {
     api.get('/api/clientes')
-      .then(res => setClientes(res.data))
+      .then(res => setClientes(res.data)) 
       .catch(err => console.error("Erro ao buscar clientes:", err));
       
     api.get('/api/usuarios')

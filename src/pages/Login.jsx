@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
@@ -19,10 +18,8 @@ function LoginPage() {
     try {
       const response = await api.post('/login', { usuario, senha });
       
-      if (response.status === 200) {
-        login({ usuario: usuario }); 
-        
-       
+      if (response.status === 200 && response.data.usuario) {
+        login(response.data.usuario); 
         navigate('/Home');
       }
 

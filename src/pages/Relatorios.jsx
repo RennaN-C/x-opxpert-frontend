@@ -19,6 +19,14 @@ function RelatoriosPage() {
     carregarRelatorios();
   }, []);
 
+  const handleRowClick = (relatorio) => {
+    if (relatorio.tipo === 'Produção') {
+      navigate('/relatorios/producao');
+    } else {
+      alert(`A visualização para relatórios do tipo "${relatorio.tipo}" ainda não foi implementada.`);
+    }
+  };
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -28,7 +36,7 @@ function RelatoriosPage() {
         </button>
       </div>
       <p>Gere e visualize relatórios de desempenho, produção e outros indicadores chave.</p>
-       <table>
+       <table className="tabela-interativa">
         <thead>
           <tr>
             <th>Nome do Relatório</th>
@@ -40,7 +48,7 @@ function RelatoriosPage() {
         </thead>
         <tbody>
           {relatorios.map(relatorio => (
-            <tr key={relatorio.id_relatorio}>
+            <tr key={relatorio.id_relatorio} onClick={() => handleRowClick(relatorio)} title="Clique para visualizar">
               <td>{relatorio.nome}</td>
               <td>{relatorio.tipo}</td>
               <td>{new Date(relatorio.data_criacao).toLocaleDateString()}</td>
