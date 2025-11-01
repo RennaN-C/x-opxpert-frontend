@@ -1,4 +1,4 @@
-/* src/assets/layout.css */
+/* src/assets/layout.css - ATUALIZADO (com Estilos do Modal) */
 .content-layout {
   background-color: #000;
   color: white;
@@ -30,6 +30,7 @@ th, td {
   padding: 15px;
   text-align: left;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  vertical-align: middle; /* Alinha o botão ✏️ */
 }
 
 thead {
@@ -87,63 +88,138 @@ tbody tr:hover {
 }
 
 
-/* --- NOVOS ESTILOS ADICIONADOS PARA PRODUÇÃO --- */
+/* --- ESTILOS DE PRODUÇÃO (adicionados anteriormente) --- */
+.tabela-interativa tbody tr { cursor: pointer; }
+.status-badge { padding: 5px 12px; border-radius: 15px; font-weight: bold; font-size: 0.85em; text-transform: uppercase; color: #fff; text-shadow: 1px 1px 1px rgba(0,0,0,0.2); white-space: nowrap; }
+.status-pendente { background-color: #f39c12; }
+.status-execucao { background-color: #3498db; }
+.status-concluida { background-color: #2ecc71; }
+.status-cancelada { background-color: #e74c3c; }
+.status-default { background-color: #95a5a6; }
+.progress-bar-container { width: 100%; min-width: 100px; background-color: #333; border-radius: 15px; overflow: hidden; height: 20px; position: relative; }
+.progress-bar { height: 100%; display: flex; align-items: center; justify-content: center; color: white; font-size: 0.8em; font-weight: bold; transition: width 0.4s ease, background-color 0.4s ease; white-space: nowrap; }
 
-/* Deixa a tabela com "hover" e indica clicabilidade */
-.tabela-interativa tbody tr {
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
+/* --- NOVOS ESTILOS PARA O MODAL E BOTÃO DE AÇÃO --- */
 
-/* --- Estilos para Badges de Status (REQ003) --- */
-.status-badge {
-  padding: 5px 12px;
-  border-radius: 15px;
-  font-weight: bold;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-  white-space: nowrap; /* Evita quebra de linha */
-}
-
-.status-pendente {
-  background-color: #f39c12; /* Laranja */
-}
-.status-execucao {
-  background-color: #3498db; /* Azul */
-}
-.status-concluida {
-  background-color: #2ecc71; /* Verde */
-}
-.status-cancelada {
-  background-color: #e74c3c; /* Vermelho */
-}
-.status-default {
-  background-color: #95a5a6; /* Cinza */
+/* Fundo escuro do Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-
-/* --- Estilos para Barra de Progresso (Protótipo p. 15) --- */
-.progress-bar-container {
+/* Conteúdo do Modal */
+.modal-content {
+  background: #1a1a1a;
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
-  min-width: 100px; /* Largura mínima */
-  background-color: #333;
-  border-radius: 15px;
-  overflow: hidden;
-  height: 20px;
-  position: relative;
+  max-width: 450px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.progress-bar {
-  /* Cor de fundo é definida dinamicamente no componente */
-  height: 100%;
+.modal-content h2 {
+  margin-top: 0;
+  color: #f55f29;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+/* Input do modal */
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  box-sizing: border-box; 
+  font-size: 16px;
+}
+
+/* Botões de ação do Modal */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.modal-actions .btn-submit {
+  width: auto;
+  padding: 10px 20px;
+}
+
+.btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Mensagem de erro no modal */
+.modal-error {
+  color: #e74c3c;
+  font-size: 0.9em;
+  margin-top: 10px;
+}
+
+/* Botão de Ação "Apontar" ✏️ */
+.btn-acao-apontar {
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.btn-acao-apontar:hover {
+  background: #4ea8e0;
+  transform: scale(1.1);
+}
+.btn-acao-apontar:disabled {
+  background: #555;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.notification-toast {
+  position: fixed;
+  top: 0; /* Começa fora da tela e anima para y: 20 */
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajuste fino da centralização */
+  padding: 12px 25px;
+  border-radius: 8px;
   color: white;
-  font-size: 0.8em;
   font-weight: bold;
-  transition: width 0.4s ease, background-color 0.4s ease;
-  white-space: nowrap;
+  font-size: 16px;
+  z-index: 9999;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }

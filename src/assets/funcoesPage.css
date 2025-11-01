@@ -5,6 +5,7 @@
   min-height: 100vh;
   padding: 40px;
   box-sizing: border-box;
+  position: relative; /* Adicionado para posicionar o botão */
 }
 
 .funcoes-header {
@@ -62,4 +63,34 @@
 .funcao-title {
   font-size: 1rem;
   font-weight: bold;
+}
+
+/* --- ESTILOS ADICIONADOS PARA O BOTÃO SAIR --- */
+
+.funcoes-logout-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  background: linear-gradient(90deg, #ff5f57, #d23838);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.funcoes-logout-btn:hover {
+  background: linear-gradient(90deg, #ff7069, #e04a4a);
+  transform: scale(1.02);
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .funcoes-logout-btn {
+    top: 20px;
+    right: 20px;
+  }
 }

@@ -1,20 +1,22 @@
-// client/src/pages/Cadastro.jsx - Versão Completa e Corrigida
+// client/src/pages/Cadastro.jsx - ATUALIZADO (Dinâmico)
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react'; // 1. Importar useEffect
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
 import '../assets/cadastro.css';
 
 function CadastroPage() {
   const navigate = useNavigate();
-  // O estado inicial agora inclui todos os campos do formulário
+  // 2. NOVO ESTADO PARA LISTAR OS DEPARTAMENTOS
+  const [departamentosList, setDepartamentosList] = useState([]);
+  
   const [formData, setFormData] = useState({
     nome_completo: '',
     email: '',
     usuario: '',
     cpf: '',
     telefone: '',
-    departamento_id: '', // Note que este campo pode precisar de um ID numérico
+    departamento_id: '', // Este campo agora será preenchido dinamicamente
     cargo: '',
     matricula: '',
     data_admissao: '',
@@ -23,7 +25,18 @@ function CadastroPage() {
   });
   const [confirmaSenha, setConfirmaSenha] = useState('');
 
-  // Esta função agora funciona para todos os inputs
+  // 3. NOVO USEEFFECT PARA BUSCAR DEPARTAMENTOS
+  useEffect(() => {
+    api.get('/api/departamentos')
+      .then(res => {
+        setDepartamentosList(res.data);
+      })
+      .catch(err => {
+        console.error("Erro ao buscar departamentos:", err);
+        alert("Não foi possível carregar a lista de departamentos. Tente recarregar a página.");
+      });
+  }, []); // O array vazio [] garante que rode apenas uma vez
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData(prevFormData => ({
@@ -38,11 +51,18 @@ function CadastroPage() {
       return alert("As senhas não coincidem.");
     }
     try {
-      // Enviando o objeto formData completo para a API
-      await api.post('/cadastro', formData);
+      // 4. TRATAR 'departamento_id' VAZIO
+      // Se o usuário não selecionar, envia 'null' em vez de ""
+      const dadosEnvio = {
+        ...formData,
+        departamento_id: formData.departamento_id || null
+      };
+
+      await api.post('/cadastro', dadosEnvio);
       alert('Solicitação de acesso enviada com sucesso!');
       navigate('/login');
     } catch (error) {
+      // Agora podemos mostrar o erro específico do backend
       alert(error.response?.data?.mensagem || 'Erro ao processar a solicitação.');
     }
   };
@@ -52,7 +72,6 @@ function CadastroPage() {
       <div className="cadastro-form">
         <h2>Solicitar Acesso!</h2>
         <form onSubmit={handleCadastro}>
-          {/* --- TODOS OS CAMPOS DO FORMULÁRIO ESTÃO AQUI AGORA --- */}
           
           <label htmlFor="nome_completo">Nome completo:</label>
           <input id="nome_completo" placeholder="Digite seu nome" type="text" value={formData.nome_completo} onChange={handleChange} required />
@@ -69,15 +88,15 @@ function CadastroPage() {
           <label htmlFor="telefone">Telefone:</label>
           <input id="telefone" placeholder="(99) 99999-9999" type="tel" value={formData.telefone} onChange={handleChange} />
           
+          {/* 5. SELECT DE DEPARTAMENTO AGORA É DINÂMICO */}
           <label htmlFor="departamento_id">Departamento:</label>
           <select id="departamento_id" value={formData.departamento_id} onChange={handleChange}>
             <option value="">Selecione</option>
-            {/* O 'value' deve ser o ID do departamento no banco, não o texto */}
-            <option value="1">TI</option>
-            <option value="2">RH</option>
-            <option value="3">Financeiro</option>
-            <option value="4">Vendas</option>
-            <option value="5">Marketing</option>
+            {departamentosList.map(depto => (
+              <option key={depto.id_departamento} value={depto.id_departamento}>
+                {depto.nome}
+              </option>
+            ))}
           </select>
           
           <label htmlFor="cargo">Cargo / Função:</label>

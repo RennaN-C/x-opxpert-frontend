@@ -1,5 +1,7 @@
+// src/pages/Funcoes/Funcoes.jsx - CORRIGIDO
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext.jsx'; 
 import '../../assets/funcoesPage.css';
 
 const menuItems = [
@@ -18,8 +20,23 @@ const menuItems = [
 ];
 
 function FuncoesPage() {
+  const navigate = useNavigate(); 
+  const { logout } = useAuth(); 
+
+  const handleLogout = () => {
+    if (confirm("Tem a certeza de que deseja sair?")) {
+      logout();
+      // O ProtectedRoute irá agora tratar do redirecionamento
+      // navigate('/login'); // <-- LINHA REMOVIDA
+    }
+  };
+
   return (
     <div className="funcoes-container">
+      <button onClick={handleLogout} className="funcoes-logout-btn">
+        Sair ⏏
+      </button>
+
       <div className="funcoes-header">
         <img src="/logo.png" alt="X OPXpert Logo" className="funcoes-logo" />
         <h1>Módulos do Sistema</h1>

@@ -1,16 +1,16 @@
-// client/src/main.jsx
-
+// client/src/main.jsx - ATUALIZADO
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import { AuthProvider } from './context/AuthContext.jsx'; // Importa o nosso provedor de autenticação
+import { AuthProvider } from './context/AuthContext.jsx';
+import { NotificationProvider } from './context/NotificationContext.jsx'; // 1. Importar
 
-// Este código encontra a div com id="root" no seu index.html e renderiza a sua aplicação React dentro dela
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* Envolvemos a aplicação com o AuthProvider para que o estado de login fique disponível em todo o lado */}
     <AuthProvider>
-      <App />
+      <NotificationProvider> {/* 2. Envolver a App */}
+        <App />
+      </NotificationProvider>
     </AuthProvider>
   </React.StrictMode>,
 );

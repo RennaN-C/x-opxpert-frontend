@@ -1,4 +1,4 @@
-/* src/assets/home.css - Versão Premium com vídeo fullscreen e tipografia moderna */
+/* src/assets/home.css - ATUALIZADO (Botão Sair Menor) */
 
 /* --- Container principal --- */
 .home-container {
@@ -135,5 +135,39 @@
   .enter-button {
     padding: 12px 30px;
     font-size: 0.95rem;
+  }
+}
+
+/* --- ESTILOS DO BOTÃO SAIR (AJUSTADOS) --- */
+
+.home-logout-btn {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  z-index: 10; /* Garante que fique acima de tudo */
+  background: linear-gradient(90deg, #ff5f57, #d23838);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  color: white;
+  
+  /* --- ALTERAÇÕES AQUI --- */
+  padding: 5px 10px;   /* <- Menor (era 8px 16px) */
+  font-size: 12px;   /* <- Menor (era 14px) */
+  /* --- FIM DAS ALTERAÇÕES --- */
+
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.home-logout-btn:hover {
+  background: linear-gradient(90deg, #ff7069, #e04a4a);
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .home-logout-btn {
+    top: 20px;
+    right: 20px;
   }
 }

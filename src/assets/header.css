@@ -1,4 +1,4 @@
-/* src/assets/header.css */
+/* src/assets/header.css - ATUALIZADO */
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -21,6 +21,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* NOVO: Adicionado display flex e gap */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Espaçamento entre os botões */
+}
+
 .nav-button {
   background: rgba(255, 255, 255, 0.1);
   color: white;
@@ -29,9 +36,22 @@
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s;
+  font-weight: bold;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .nav-button:hover {
   background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+/* NOVO: Estilo para o botão de Sair */
+.nav-button-logout {
+  background: linear-gradient(90deg, #ff5f57, #d23838);
+  border-color: rgba(255, 100, 100, 0.3);
+}
+
+.nav-button-logout:hover {
+  background: linear-gradient(90deg, #ff7069, #e04a4a);
+  transform: scale(1.02);
 }
