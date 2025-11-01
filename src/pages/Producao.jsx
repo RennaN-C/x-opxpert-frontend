@@ -1,4 +1,3 @@
-// src/pages/Producao.jsx - ATUALIZADO
 import React from 'react';
 import FeatureCard from '../components/FeatureCard.jsx';
 
@@ -20,7 +19,7 @@ function ProducaoPage() {
           description="Crie e inicie uma nova ordem no sistema."
           linkTo="/producao/nova"
         />
-        {/* NOVO CARD ADICIONADO ABAIXO */}
+        {}
         <FeatureCard
           icon="↔️"
           title="Sequenciar Produção"

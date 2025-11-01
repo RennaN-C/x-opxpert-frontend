@@ -1,13 +1,11 @@
-// src/pages/Producao/NovaOrdem.jsx - ATUALIZADO (usa notificações)
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
-import { useNotification } from '../../context/NotificationContext'; // 1. Importar
+import { useNotification } from '../../context/NotificationContext'; 
 
 function NovaOrdemPage() {
   const navigate = useNavigate();
-  const { showNotification } = useNotification(); // 2. Obter a função
-  const [clientes, setClientes] = useState([]);
+  const { showNotification } = useNotification(); 
   const [usuarios, setUsuarios] = useState([]);
   const [formData, setFormData] = useState({
     descricao: '',
@@ -38,24 +36,24 @@ function NovaOrdemPage() {
     e.preventDefault();
     
     if (!formData.quantidade_planejada) {
-      // 3. Substituir alert de erro
+      
       showNotification('Por favor, preencha a quantidade planejada.', 'error');
       return;
     }
     
     try {
       await api.post('/api/ordens-producao', formData);
-      // 4. Substituir alert de sucesso
+      
       showNotification('Ordem de produção criada com sucesso!', 'success');
       navigate('/producao/ordens');
     } catch (error) {
       console.error('Erro ao criar ordem:', error);
-      // 5. Substituir alert de falha
+     
       showNotification('Falha ao criar ordem de produção.', 'error');
     }
   };
 
-  // ... (o resto do seu 'return' JSX continua igual)
+  
   return (
     <div>
       <h1>➕ Nova Ordem de Produção</h1>

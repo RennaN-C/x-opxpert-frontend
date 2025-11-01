@@ -1,9 +1,8 @@
-// src/pages/Dashboard.jsx - Versão Renovada
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import '../assets/dashboard.css'; // Novo CSS
-
+import '../assets/dashboard.css'; 
 function DashboardPage() {
   const [stats, setStats] = useState({ abertas: 0, emProducao: 0, concluidas: 0 });
   const navigate = useNavigate();
@@ -38,9 +37,9 @@ function DashboardPage() {
         </div>
 
         <div className="main-chart">
-           <h3>Performance da Produção (Exemplo)</h3>
-           {/* Aqui você pode adicionar um gráfico real com a biblioteca de sua escolha */}
-           <p>Gráficos de OEE e produtividade apareceriam aqui.</p>
+           <h3>Performance da Produção </h3>
+           {}
+           <p></p>
         </div>
 
         <div className="quick-actions">

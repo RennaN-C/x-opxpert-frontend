@@ -1,10 +1,10 @@
-// src/pages/NotFound.jsx
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import '../assets/404.css'; // Usaremos um CSS dedicado
+import '../assets/404.css'; 
 
-// Variantes para orquestrar a animação de entrada
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {

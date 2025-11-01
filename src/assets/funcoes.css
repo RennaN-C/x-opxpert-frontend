@@ -50,9 +50,9 @@ html {
   background: linear-gradient(90deg, #6a11cb, #2575fc, #ff7e5f);
 }
 
-/* Página principal */
+
 .page-wrapper {
-  margin-left: 350px; /* Aumentado para corresponder à largura da sidebar */
+  margin-left: 350px; 
   height: calc(100vh - 50px);
   padding: 40px 30px;
   box-sizing: border-box;
@@ -66,12 +66,11 @@ html {
   width: calc(100% - 350px);
 }
 
-/* Logo de fundo */
+
 .page-wrapper::before {
   content: "";
   position: absolute;
   inset: 0;
-  /* CAMINHO CORRIGIDO ABAIXO */
   background: url("/logo.png") center/contain no-repeat;
   filter: blur(1px);
   opacity: 0.15;
@@ -85,7 +84,7 @@ html {
   width: 100%;
 }
 
-/* Títulos e textos */
+
 .page-wrapper h1 {
   font-size: 36px;
   color: #f55f29;
@@ -100,7 +99,7 @@ html {
   user-select: none;
 }
 
-/* Botões das funções */
+
 .functions {
   display: flex;
   flex-wrap: wrap;
@@ -134,7 +133,7 @@ html {
   line-height: 1;
 }
 
-/* Footer fixo */
+
 footer {
   background-color: #000000;
   height: 50px;
@@ -145,7 +144,7 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   position: fixed;
   bottom: 0;
-  left: 350px; /* Aumentado para corresponder à largura da sidebar */
+  left: 350px; 
   width: calc(100% - 350px);
   box-sizing: border-box;
   user-select: none;
@@ -153,7 +152,7 @@ footer {
   z-index: 999;
 }
 
-/* Adicionar no final de funcoes.css */
+
 .card-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

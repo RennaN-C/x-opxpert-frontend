@@ -1,4 +1,4 @@
-// src/pages/Login.jsx - Redirecionamento corrigido para /home
+
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
@@ -22,7 +22,7 @@ function LoginPage() {
       if (response.status === 200) {
         login({ usuario: usuario }); 
         
-        // CORREÇÃO: Redireciona para a nova página /home
+       
         navigate('/Home');
       }
 

@@ -1,4 +1,3 @@
-/* src/assets/header.css - ATUALIZADO */
 .app-header {
   display: flex;
   justify-content: space-between;
@@ -21,11 +20,11 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* NOVO: Adicionado display flex e gap */
+
 .header-nav {
   display: flex;
   align-items: center;
-  gap: 15px; /* Espaçamento entre os botões */
+  gap: 15px; 
 }
 
 .nav-button {
@@ -45,7 +44,7 @@
   transform: scale(1.02);
 }
 
-/* NOVO: Estilo para o botão de Sair */
+
 .nav-button-logout {
   background: linear-gradient(90deg, #ff5f57, #d23838);
   border-color: rgba(255, 100, 100, 0.3);

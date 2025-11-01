@@ -1,4 +1,3 @@
-// src/pages/Funcoes/Funcoes.jsx - CORRIGIDO
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext.jsx'; 
@@ -26,8 +25,7 @@ function FuncoesPage() {
   const handleLogout = () => {
     if (confirm("Tem a certeza de que deseja sair?")) {
       logout();
-      // O ProtectedRoute irá agora tratar do redirecionamento
-      // navigate('/login'); // <-- LINHA REMOVIDA
+      
     }
   };
 

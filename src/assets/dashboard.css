@@ -29,7 +29,7 @@
 }
 
 .main-chart {
-  grid-column: 1 / -1; /* Ocupa todas as colunas */
+  grid-column: 1 / -1; 
   background: #111;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 20px;

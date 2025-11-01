@@ -1,15 +1,15 @@
-// src/pages/Home.jsx - CORRIGIDO
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext.jsx'; 
 import '../assets/home.css';
 
-// ... (variantes de animação) ...
+
 const containerVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 1.5, delayChildren: 1, }, }, };
 const itemVariants = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeInOut" }, }, };
 const buttonVariants = { hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 1, delay: 5.5 } } }
-// ... (fim das variantes) ...
+
 
 function HomePage() {
   const navigate = useNavigate();
@@ -18,8 +18,7 @@ function HomePage() {
   const handleLogout = () => {
     if (confirm("Tem a certeza de que deseja sair?")) {
       logout();
-      // O ProtectedRoute irá agora tratar do redirecionamento
-      // navigate('/login'); // <-- LINHA REMOVIDA
+    
     }
   };
 
@@ -29,13 +28,13 @@ function HomePage() {
         Sair ⏏
       </button>
 
-      {/* Vídeo de Fundo */}
+      {}
       <video autoPlay muted loop className="background-video">
         <source src="/x.mp4" type="video/mp4" />
       </video>
       <div className="video-overlay" />
 
-      {/* Conteúdo animado */}
+      {}
       <motion.div
         className="home-content"
         variants={containerVariants}

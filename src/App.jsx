@@ -1,20 +1,15 @@
-// src/App.jsx - Versão Final com todas as rotas
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext.jsx';
-
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import ContentLayout from './layouts/ContentLayout.jsx';
-
-// --- Importação de Todas as Páginas ---
 import LoginPage from './pages/Login.jsx';
 import CadastroPage from './pages/Cadastro.jsx';
 import HomePage from './pages/Home.jsx';
 import FuncoesPage from './pages/Funcoes/Funcoes.jsx';
 import DashboardPage from './pages/Dashboard.jsx';
 import PerfilPage from './pages/Perfil/Perfil.jsx';
-
-// Módulos Principais e de Criação
 import ClientesPage from './pages/Clientes.jsx';
 import NovoClientePage from './pages/Clientes/NovoCliente.jsx';
 
@@ -61,17 +56,17 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Rotas Públicas */}
+        {}
         <Route path="/login" element={!user ? <LoginPage /> : <Navigate to="/home" />} />
         <Route path="/cadastro" element={<CadastroPage />} />
 
-        {/* Rotas Protegidas */}
+        {}
         <Route element={<ProtectedRoute />}>
-          {/* Páginas de ecrã completo */}
+          {}
           <Route path="/home" element={<HomePage />} />
           <Route path="/funcoes" element={<FuncoesPage />} />
 
-          {/* Páginas com o layout principal (Sidebar + Header) */}
+          {}
           <Route element={<ContentLayout />}>
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/perfil" element={<PerfilPage />} />
@@ -117,7 +112,7 @@ function App() {
           </Route>
         </Route>
 
-        {/* Redirecionamentos e Página Não Encontrada */}
+        {}
         <Route 
           path="/" 
           element={user ? <Navigate to="/home" /> : <Navigate to="/login" />} 

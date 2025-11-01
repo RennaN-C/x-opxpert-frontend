@@ -1,4 +1,4 @@
-// src/pages/Relatorios/NovoRelatorio.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
@@ -8,7 +8,7 @@ function NovoRelatorioPage() {
   const [formData, setFormData] = useState({
     nome: '',
     descricao: '',
-    tipo: 'Produção' // Valor padrão
+    tipo: 'Produção' 
   });
 
   const handleChange = (e) => {

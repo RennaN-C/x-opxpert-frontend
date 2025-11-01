@@ -1,13 +1,13 @@
-// client/src/pages/Cadastro.jsx - ATUALIZADO (Dinâmico)
 
-import React, { useState, useEffect } from 'react'; // 1. Importar useEffect
+
+import React, { useState, useEffect } from 'react'; 
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/api';
 import '../assets/cadastro.css';
 
 function CadastroPage() {
   const navigate = useNavigate();
-  // 2. NOVO ESTADO PARA LISTAR OS DEPARTAMENTOS
+  
   const [departamentosList, setDepartamentosList] = useState([]);
   
   const [formData, setFormData] = useState({
@@ -16,7 +16,7 @@ function CadastroPage() {
     usuario: '',
     cpf: '',
     telefone: '',
-    departamento_id: '', // Este campo agora será preenchido dinamicamente
+    departamento_id: '', 
     cargo: '',
     matricula: '',
     data_admissao: '',
@@ -25,7 +25,7 @@ function CadastroPage() {
   });
   const [confirmaSenha, setConfirmaSenha] = useState('');
 
-  // 3. NOVO USEEFFECT PARA BUSCAR DEPARTAMENTOS
+  
   useEffect(() => {
     api.get('/api/departamentos')
       .then(res => {
@@ -35,7 +35,7 @@ function CadastroPage() {
         console.error("Erro ao buscar departamentos:", err);
         alert("Não foi possível carregar a lista de departamentos. Tente recarregar a página.");
       });
-  }, []); // O array vazio [] garante que rode apenas uma vez
+  }, []); 
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -51,8 +51,7 @@ function CadastroPage() {
       return alert("As senhas não coincidem.");
     }
     try {
-      // 4. TRATAR 'departamento_id' VAZIO
-      // Se o usuário não selecionar, envia 'null' em vez de ""
+    
       const dadosEnvio = {
         ...formData,
         departamento_id: formData.departamento_id || null
@@ -62,7 +61,7 @@ function CadastroPage() {
       alert('Solicitação de acesso enviada com sucesso!');
       navigate('/login');
     } catch (error) {
-      // Agora podemos mostrar o erro específico do backend
+      
       alert(error.response?.data?.mensagem || 'Erro ao processar a solicitação.');
     }
   };
@@ -88,7 +87,7 @@ function CadastroPage() {
           <label htmlFor="telefone">Telefone:</label>
           <input id="telefone" placeholder="(99) 99999-9999" type="tel" value={formData.telefone} onChange={handleChange} />
           
-          {/* 5. SELECT DE DEPARTAMENTO AGORA É DINÂMICO */}
+          {}
           <label htmlFor="departamento_id">Departamento:</label>
           <select id="departamento_id" value={formData.departamento_id} onChange={handleChange}>
             <option value="">Selecione</option>

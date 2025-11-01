@@ -1,4 +1,4 @@
-// src/pages/Ajuda.jsx
+
 import React from 'react';
 
 function AjudaPage() {

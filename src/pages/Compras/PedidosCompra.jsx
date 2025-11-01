@@ -1,4 +1,3 @@
-// src/pages/Compras/PedidosCompra.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
@@ -43,7 +42,7 @@ function PedidosCompraPage() {
           {pedidos.map(p => (
             <tr key={p.id_pedido}>
               <td>{p.id_pedido}</td>
-              {/* CORREÇÃO AQUI: Usa 'p.fornecedor.nome' */}
+              {}
               <td>{p.fornecedor ? p.fornecedor.nome : 'N/A'}</td>
               <td>{new Date(p.data_pedido).toLocaleDateString()}</td>
               <td>R$ {parseFloat(p.valor_total).toFixed(2)}</td>

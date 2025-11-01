@@ -27,7 +27,7 @@ body {
 .cadastro-container {
   display: flex;
   width: 900px;
-  height: 600px; /* altura fixa para evitar scroll */
+  height: 600px; 
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
@@ -43,11 +43,11 @@ body {
   background-color: #000000;
   color: white;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
-  overflow-y: auto; /* caso o formulário passe da altura */
+  overflow-y: auto; 
 }
 
 .cadastro-form::-webkit-scrollbar {
-  display: none; /* esconde a barra de rolagem interna */
+  display: none; 
 }
 
 .cadastro-form h2 {
@@ -111,7 +111,7 @@ select option {
 
 .cadastro-image {
   flex: 1;
-  /* CAMINHO CORRIGIDO ABAIXO */
+  
   background: url("/logo.png") center no-repeat;
   background-size: contain;
   background-color: rgba(255, 255, 255, 0.05);

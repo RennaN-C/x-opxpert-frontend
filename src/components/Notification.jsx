@@ -1,4 +1,3 @@
-// src/components/Notification.jsx - NOVO FICHEIRO
 import React from 'react';
 import { useNotification } from '../context/NotificationContext';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -6,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Notification() {
   const { notification } = useNotification();
 
-  // Define a cor de fundo com base no tipo
+
   const getBackgroundColor = (type) => {
     if (type === 'success') return 'linear-gradient(90deg, #2ecc71, #28a745)';
     if (type === 'error') return 'linear-gradient(90deg, #e74c3c, #dc3545)';

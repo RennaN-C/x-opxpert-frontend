@@ -1,7 +1,6 @@
-/* src/assets/404.css */
 :root {
-  /* --bg: #0e0f13; / / Variável --bg não será mais usada para o fundo principal */
-  --card: #171923; /* Mantém outras variáveis para os elementos internos */
+  
+  --card: #171923; 
   --text: #e9eaf0;
   --muted: #a3a6b3;
   --accent: #6ea8fe;
@@ -13,22 +12,22 @@
 }
 html,
 body {
-  height: 100%; /* Garante que ocupem a altura */
+  height: 100%; 
 }
 body {
   margin: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background: #000000; /* << ALTERADO para preto */
-  color: var(--text); /* Mantém a cor do texto definida na variável */
-  display: center; /* Mantém a centralização do conteúdo 404 */
-  place-items: center; /* Mantém a centralização do conteúdo 404 */
+  background: #000000; 
+  color: var(--text); 
+  display: center; 
+  place-items: center; 
   
-  /* overflow: hidden; / / Removido para garantir que não bloqueie scroll se necessário */
+  
 }
 
-.card { /* Estilo do card interno */
+.card { 
   width: min(520px, 92vw);
-  background: var(--card); /* Usa a variável --card */
+  background: var(--card); 
   border-radius: var(--radius);
   padding: 28px 24px;
   text-align: center;
@@ -41,8 +40,8 @@ body {
   letter-spacing: 2px;
   line-height: 0.9;
   margin: 4px 0 10px;
-  /* Cor pode ser definida diretamente ou usar uma variável */
-  color: var(--accent); /* Exemplo usando --accent */
+  
+  color: var(--accent); 
 }
 
 .subtitle {
@@ -51,7 +50,7 @@ body {
   color: var(--muted);
 }
 
-.emoji { /* Estilo para o emoji no NotFound.jsx se você tiver um */
+.emoji { 
   font-size: 42px;
   margin-bottom: 8px;
 }
@@ -63,59 +62,58 @@ body {
   grid-template-columns: 1fr;
 }
 
-a.button, button.notfound-button /* Aplicar estilo ao botão do NotFound.jsx */ {
+a.button, button.notfound-button  {
   display: inline-block;
   text-decoration: none;
   background: var(--accent);
-  color: #0b0c10; /* Cor de texto escura para contraste com --accent */
+  color: #0b0c10; 
   padding: 12px 16px;
   border-radius: 10px;
   font-weight: 700;
-  border: none; /* Remover borda padrão do botão */
-  cursor: pointer; /* Adiciona cursor de ponteiro */
-  transition: background-color 0.2s ease, transform 0.2s ease; /* Transição suave */
+  border: none; 
+  cursor: pointer; 
+  transition: background-color 0.2s ease, transform 0.2s ease; 
 }
 
 a.button:hover, button.notfound-button:hover {
-  background-color: #8bbfff; /* Cor ligeiramente mais clara no hover */
-  transform: translateY(-2px); /* Efeito sutil */
+  background-color: #8bbfff; 
+  transform: translateY(-2px); 
 }
 
 
-.link-minimal { /* Se você usar links adicionais */
+.link-minimal { 
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
-  margin-top: 10px; /* Espaçamento */
-  display: inline-block; /* Para margin funcionar */
+  margin-top: 10px; 
+  display: inline-block; 
 }
 
 .link-minimal:hover {
   text-decoration: underline;
 }
 
-/* Estilos adicionais para NotFound.jsx que foram referenciados */
-.notfound-container { /* Container principal da página 404 */
+
+.notfound-container { 
   width: 100%;
   height: 100%;
   position: relative;
-  /* display: grid; e place-items: center; já estão no body */
+  
 }
 .notfound-content {
   position: relative;
-  z-index: 3; /* acima do overlay e do vídeo */
+  z-index: 3; 
 }
-.notfound-logo { /* Estilo para o logo se usado na página 404 */
-  max-width: 150px; /* Exemplo */
+.notfound-logo { 
+  max-width: 150px; 
   margin-bottom: 20px;
 }
-.notfound-title { /* O H1 com "404" */
-  /* Estilos já definidos em .code */
+.notfound-title { 
+  
 }
-.notfound-subtitle { /* "Página Não Encontrada" */
-  /* Estilos já definidos em .subtitle */
+.notfound-subtitle { /
 }
-.notfound-description { /* Descrição adicional */
+.notfound-description { 
   color: var(--muted);
   font-size: 1rem;
   margin-top: 10px;
@@ -128,8 +126,8 @@ a.button:hover, button.notfound-button:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0; /* fica atrás de tudo */
-  pointer-events: none; /* evita bloquear cliques */
+  z-index: 0; 
+  pointer-events: none; 
 }
 
 .video-overlay {
@@ -140,7 +138,7 @@ a.button:hover, button.notfound-button:hover {
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 1;
-  pointer-events: none; /* importante! permite clicar no que está acima */
+  pointer-events: none; 
 }
 
 .notfound-button {

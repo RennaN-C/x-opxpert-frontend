@@ -1,16 +1,14 @@
-// src/pages/Producao/OrdensProducao.jsx - ATUALIZADO (usa notificações)
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 import { useNavigate } from 'react-router-dom';
-import { useNotification } from '../../context/NotificationContext'; // 1. Importar
+import { useNotification } from '../../context/NotificationContext'; 
 
-// --- COMPONENTE MODAL DE APONTAMENTO (Atualizado) ---
+
 const ApontamentoModal = ({ ordem, onClose, onSave }) => {
   const [quantidade, setQuantidade] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const { showNotification } = useNotification(); // 2. Obter a função
-
+  const { showNotification } = useNotification(); 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!quantidade || parseInt(quantidade, 10) <= 0) {
@@ -25,17 +23,17 @@ const ApontamentoModal = ({ ordem, onClose, onSave }) => {
       await api.post(`/api/ordens-producao/${ordem.id_ordem}/apontar`, {
         quantidade_apontada: parseInt(quantidade, 10)
       });
-      // 3. Notificação de sucesso
+      
       showNotification('Apontamento salvo com sucesso!', 'success');
-      onSave(); // Fecha o modal e atualiza a lista
+      onSave(); 
     } catch (err) {
-      // 4. Erro visual no modal
+      
       setError(err.response?.data?.erro || 'Falha ao salvar apontamento.');
       setLoading(false);
     }
   };
 
-  // ... (o resto do 'return' JSX do Modal continua igual)
+ 
   return (
     <div className="modal-backdrop">
       <div className="modal-content">
@@ -68,17 +66,17 @@ const ApontamentoModal = ({ ordem, onClose, onSave }) => {
   );
 };
 
-// ... (Componentes ProgressBar e StatusBadge continuam iguais) ...
+
 const ProgressBar = ({ progresso }) => { const progress = Math.max(0, Math.min(100, progresso || 0)); const getBarColor = (p) => { if (p < 40) return '#e74c3c'; if (p < 80) return '#3498db'; return '#2ecc71'; }; return ( <div className="progress-bar-container"> <div className="progress-bar" style={{ width: `${progress}%`, backgroundColor: getBarColor(progress) }} > {progress}% </div> </div> ); };
 const StatusBadge = ({ status }) => { const getStatusClass = (status) => { switch (status) { case 'Aberta': case 'Pendente': return 'status-pendente'; case 'Em Execução': case 'Apontando': return 'status-execucao'; case 'Concluída': return 'status-concluida'; case 'Cancelada': return 'status-cancelada'; default: return 'status-default'; } }; return (<span className={`status-badge ${getStatusClass(status)}`}>{status}</span>); };
 
 
-// --- PÁGINA PRINCIPAL (Atualizada) ---
+
 function OrdensProducaoPage() {
   const [ordens, setOrdens] = useState([]);
   const [loading, setLoading] = useState(true);
   const [modalInfo, setModalInfo] = useState(null);
-  const { showNotification } = useNotification(); // 5. Obter a função
+  const { showNotification } = useNotification(); 
   const navigate = useNavigate();
 
   const fetchOrdens = async () => {
@@ -88,7 +86,7 @@ function OrdensProducaoPage() {
       setOrdens(response.data);
     } catch (error) {
       console.error("Erro ao buscar ordens de produção:", error);
-      // 6. Substituir alert de erro
+      
       showNotification('Não foi possível carregar as ordens.', 'error');
     } finally {
       setLoading(false);
@@ -113,7 +111,7 @@ function OrdensProducaoPage() {
     console.log(`Navegar para detalhes da ordem ${id}`);
   };
 
-  // ... (o resto do 'return' JSX da Página continua igual)
+  
   return (
     <div>
       {modalInfo && (

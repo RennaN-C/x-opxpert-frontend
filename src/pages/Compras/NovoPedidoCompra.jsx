@@ -1,4 +1,3 @@
-// src/pages/Compras/NovoPedidoCompra.jsx
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
@@ -13,7 +12,7 @@ function NovoPedidoCompraPage() {
   });
 
   useEffect(() => {
-    // Busca a lista de fornecedores para preencher o select
+    
     api.get('/api/fornecedores')
       .then(res => setFornecedores(res.data))
       .catch(err => console.error("Erro ao buscar fornecedores:", err));

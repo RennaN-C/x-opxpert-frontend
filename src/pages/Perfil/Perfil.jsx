@@ -1,7 +1,7 @@
-// src/pages/Perfil/Perfil.jsx
+
 import React from 'react';
 import { useAuth } from '../../context/AuthContext.jsx';
-import '../../assets/layout.css'; // Reutilizaremos o CSS de formulário
+import '../../assets/layout.css'; 
 
 function PerfilPage() {
   const { user } = useAuth();
