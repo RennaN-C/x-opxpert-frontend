@@ -1,7 +1,5 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  /* As linhas problemáticas 'max-width', 'margin' e 'padding' foram removidas */
   text-align: center;
 }
 
