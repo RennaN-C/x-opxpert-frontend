@@ -1,51 +1,41 @@
-body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-    }
-    header {
-        background-color: #0b0932;
-        color: white;
-        padding: 15px;
-        text-align: center;
-    }
-    main {
-        max-width: 900px;
-        margin: auto;
-        padding: 20px;
-    }
-    section {
-        background: white;
-        padding: 20px;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    section h2 {
-        margin-top: 0;
-        color: #0b0932;
-    }
-    label {
-        display: block;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-    input, select, button {
-        margin-top: 5px;
-        padding: 8px;
-        width: 100%;
-        max-width: 400px;
-        box-sizing: border-box;
-    }
-    button {
-        background-color: #0b0932;
-        color: white;
-        border: none;
-        cursor: pointer;
-        margin-top: 15px;
-    }
-    button:hover {
-        background-color: #1d1a4f;
-    }
+
+.config-section {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+.config-section h2 {
+    margin-top: 0;
+    color: #f55f29;
+}
+.config-section label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.config-section input, 
+.config-section select, 
+.config-section button {
+    margin-top: 5px;
+    padding: 8px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+}
+
+.config-section button {
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.config-section button:hover {
+    opacity: 0.9;
+}
